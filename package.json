@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ShivaKanchi/First_Server/issues"
   },
-  "homepage": "https://github.com/ShivaKanchi/First_Server#readme"
+  "homepage": "https://github.com/ShivaKanchi/First_Server#readme",
+  "dependencies": {
+    "nodemon": "^2.0.19"
+  }
 }
