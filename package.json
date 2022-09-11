@@ -1,0 +1,19 @@
+{
+  "name": "first_server",
+  "version": "1.0.0",
+  "description": "My first server with npm",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShivaKanchi/First_Server.git"
+  },
+  "author": "Shiva Kanchi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShivaKanchi/First_Server/issues"
+  },
+  "homepage": "https://github.com/ShivaKanchi/First_Server#readme"
+}
