@@ -1,4 +1,4 @@
-const http = require('html');
+const http = require('http');
 const port = 8081;
 
 http
@@ -7,5 +7,7 @@ http
         response.write('<h1>HelloWorld</h1>');
         response.end();
     }).listen(port, () => {
-        console.log('Server started at ${port}');
+        console.log('Server started at port', port);
     });
+
+    //http://localhost:8081
