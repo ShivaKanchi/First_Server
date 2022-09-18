@@ -24,6 +24,23 @@ http
                         body = JSON.parse(body);
                         console.log(body);
                     })
+            } else if (method === 'DELETE') {
+                let body = "";
+                req.on('error', (err) =>
+                    console.error(err))
+                    .on(('data'), (chunk) => {
+                        body += chunk;
+                    })
+                    .on(('end', () => {
+                        body = JSON.parse(body);
+                        let deletethis = body.item;
+                        for (i = 0; i < todolist.length; i++) {
+                            if (todolist[i] === deletethis) {
+                                todolist.splice(i, 1);
+                                break;
+                            }
+                        }
+                    }))
             } else {
                 res.writeHead(501);
             }
