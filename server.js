@@ -40,6 +40,7 @@ http
                                 break;
                             }
                         }
+                        res.writeHead(200);
                     }))
             } else {
                 res.writeHead(501);
