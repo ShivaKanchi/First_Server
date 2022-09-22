@@ -10,8 +10,10 @@ http
         if (url === '/todos') {
             if (method === 'GET') {
                 res.writeHead(200, { 'Content-Type': 'text/html' });
+                console.log(todolist);
                 res.write(todolist.toString());
-            } else if (method === 'POST') {
+            }
+            else if (method === 'POST') {
                 let body = '';
                 req.on('error', (err) => {
                     console.error(err);
@@ -22,26 +24,32 @@ http
                     })
                     .on('end', () => {
                         body = JSON.parse(body);
-                        console.log(body);
-                    })
-            } else if (method === 'DELETE') {
-                let body = "";
-                req.on('error', (err) =>
-                    console.error(err))
-                    .on(('data'), (chunk) => {
+                        let newtodo = todolist;
+                        newtodo.push(body.item);
+                        console.log(newtodo);
+                        res.writeHead(200);
+                    });
+            }
+            else if (method === 'DELETE') {
+                let body = '';
+                req.on('error', (err) => {
+                    console.error(err);
+                })
+                    .on('data', (chunk) => {
                         body += chunk;
+                        console.log(chunk);
                     })
-                    .on(('end', () => {
+                    .on('end', () => {
                         body = JSON.parse(body);
-                        let deletethis = body.item;
+                        let deleteThis = body.item;
                         for (i = 0; i < todolist.length; i++) {
-                            if (todolist[i] === deletethis) {
+                            if (todolist[i].toString() === deleteThis) {
                                 todolist.splice(i, 1);
                                 break;
                             }
                         }
                         res.writeHead(200);
-                    }))
+                    });
             } else {
                 res.writeHead(501);
             }
